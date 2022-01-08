@@ -30,10 +30,12 @@ while True:
         if point > lim*0.66:
             level += 1
             test = 0
+            point = 0
             print(f'[🏆] 🎈 Congratulations! 🎉 - You have been upgrade of level.\n |LEVEL {level} |')
         else:
             print('Level Over! - Restarting Level')
             test = 0
+            point = 0
         
     if point == -10:
         print('Low point!\nRegressing Level')
