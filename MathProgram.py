@@ -8,12 +8,14 @@ lin()
 print('\n')
 test = right = wrong = point = 0
 level = int(input('Enter Level (0 as default): '))
+lim = 9
 while True:
     p = (10**(level+1))-1
+    px = (p+1)*2
     a = randint(2, p)
-    b = randint(2, p)
+    b = (randint(2, px)*5)/(p+1)
     solution = (a*b)
-    answer = float(input(f"Level {level}, test: ({test}/100) | Point: {point}\n{a} x {b} = "))
+    answer = float(input(f"Level {level}, test: ({test}/{lim}) | Point: {point}\n{a} x {b} = "))
     if answer == solution:
         right += 1
         point += 1
@@ -24,8 +26,8 @@ while True:
         print('[❎] Wrong!')
     print(f'Answer: {solution}')
     test += 1
-    if test > 99:
-        if point > 66:
+    if test > lim:
+        if point > lim*0.66:
             level += 1
             test = 0
             print(f'[🏆] 🎈 Congratulations! 🎉 - You have been upgrade of level. Now you are in Level {level}')
