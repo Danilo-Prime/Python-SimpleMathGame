@@ -8,7 +8,7 @@ lin()
 print('\n')
 test = right = wrong = point = 0
 level = int(input('Enter Level (0 as default): '))
-lim = 9
+lim = 100
 while True:
     p = (10**(level+1))-1
     px = (p+1)*2
@@ -30,7 +30,7 @@ while True:
         if point > lim*0.66:
             level += 1
             test = 0
-            print(f'[🏆] 🎈 Congratulations! 🎉 - You have been upgrade of level. Now you are in Level {level}')
+            print(f'[🏆] 🎈 Congratulations! 🎉 - You have been upgrade of level.\n |LEVEL {level} |')
         else:
             print('Level Over! - Restarting Level')
             test = 0
