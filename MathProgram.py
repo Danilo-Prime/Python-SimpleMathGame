@@ -27,6 +27,8 @@ while True:
     if test > 99:
         if point > 66:
             level += 1
+            test = 0
+            print(f'[🏆] 🎈 Congratulations! 🎉 - You have been upgrade of level. Now you are in Level {level}')
         else:
             print('Level Over! - Restarting Level')
             test = 0
