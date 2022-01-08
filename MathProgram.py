@@ -9,14 +9,11 @@ print('\n')
 test = right = wrong = point = 0
 level = int(input('Enter Level (0 as default): '))
 while True:
-    px = (10**(level+1))-1
-    p = px//2
-    xa = randint(2, px)
-    xb = randint(2, p)
-    xc = randint(2, px)
-    xd = randint(2, p)
-    solution = (xa*xb)
-    answer = float(input(f"Level {level}, test: ({test}/100) | Point: {point}\n({xa+xc} - {xc} ) x ({xb-xd} + {xd}) = "))
+    p = (10**(level+1))-1
+    a = randint(2, p)
+    b = randint(2, p)
+    solution = (a*b)
+    answer = float(input(f"Level {level}, test: ({test}/100) | Point: {point}\n{a} x {b} = "))
     if answer == solution:
         right += 1
         point += 1
