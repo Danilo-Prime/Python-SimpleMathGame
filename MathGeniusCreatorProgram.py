@@ -2,13 +2,22 @@ from random import randint
 import os
 def lin(x=60):
     print('='*x)
+print('MIND MATH GENIUS BUILDER GAME')
 lines = '-'*50
+print("""At the and, only need to know the formules and algebric, geometric, functions... Combinatory, statistic, analytic geometry, analytic algebra.
+You only need to do until the level 5~6. The level is less important than the test it'self.
+Different from the previous game, this one is not easy, even using basic math, and excluding division.
+The game it'self focus in develop the mental math instinct, the way the test is build is for this porpouse. Not to solve only.
+The dificulty is base in memorization, how many test you need to memorized.
+I use math, to not let you use visual memory, but imaginary visual memory, this is: you imagine the solution then store in you memory.""")
 lin()
-print('# This programm is to Mental Math, not paper math. Do not write anything!\n# You can manipulate final result, is the only place you can modify is the result')
-print('# ALERT: YOU CANNOT HAVE -10 NEGATIVE POINT. That means 10 errors without right answer.')
-print('# The Level is the 10^Level. The size of the level is the power of 10.')
-print('# Only two wrong. But the point will value less as penauty and the wrong point will mutiply as a game, or you lose or win less if you repeat mistakens...')
-print("# Memory can't be anything different from int number or over 100. The game is flexible but everything have the down side or punity. More easy less repetition option. More hard more repetition option.")
+print("""# DOCUMENT GUIDE
+# This programm is to Mental Math, not paper math. Do not write anything!\n# You can manipulate final result, is the only place you can modify is the result')
+# ALERT: YOU CANNOT HAVE -10 NEGATIVE POINT. That means 10 errors without right answer. Nor have level -1. 
+# The common punity is regression of level, but you already will not out of level 0, that mean game over that is the maxim penauty, where the game close itself. ')
+# The Level is the 10^Level. The size of the level is the power of 10.')
+# Only two wrong. But the point will value less as penauty and the wrong point will mutiply as a game, or you lose or win less if you repeat mistakens...')
+# Memory can't be anything different from int number or over 100. The game is flexible but everything have the down side or punity.""")
 lin()
 print('\n')
 test = right = wrong = point = 0
@@ -18,19 +27,19 @@ except:
     level = 0
 
 try:
-    memory = int(input('Do you can memorized how many test? (3 default | over 10 if you can!) '))
-    if type(memory) != int or memory > 100:
+    memory = int(input('Do you can memorized how many test? (Nor less than 3, bigger than 120) '))
+    if type(memory) != int or 3 > memory > 120:
         memory = 1
 except:
     print('[Inválid] - Assuming 1 test!')
     memory = 1
-lim = 100
+lim = 120
 while True:
     lista = []
     listc = []
     listSolutions = []
     listAnswers = []
-    print(f"Level {level} | Point: {point} Wrong: {wrong}\n{lines}\n")
+    print(f"Level {level} | Point: {point} right: {right} Wrong: {wrong}\n{lines}\n")
     for i in range(memory):
         p1 = (10**(level))+8
         p2 = (10**(level+1))-1
