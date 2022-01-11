@@ -80,7 +80,7 @@ while True:
             print(f'[❎] Wrong! (-{1*(round+1)} point)')
             round += 1
         if round < roundLimit:
-            ask = input('Do you whant to repeat? [y/n] ')[0].lower()
+            ask = input('Do you whant to repeat? (only if you remeber the answer!) [y/n] ')[0].lower()
             if ask == 'n':
                 break
     if round == {roundLimit}:
