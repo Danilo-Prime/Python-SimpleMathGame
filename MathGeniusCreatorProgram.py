@@ -29,8 +29,8 @@ except:
     level = 0
 
 try:
-    memory = int(input('Do you can memorized how many test? (Nor less than 3, neither bigger than 120) '))
-    if type(memory) != int or 3 > memory > 120:
+    memory = int(input('Do you can memorized how many test? (not bigger than 120) '))
+    if type(memory) != int or memory > 120:
         memory = 1
 except:
     print('[Inválid] - Assuming 1 test!')
@@ -47,9 +47,9 @@ while True:
         p2 = (10**(level+1))-1
         px = (p2+1)*2
         a = randint(2, p1)
-        b = (randint(2, px)*5)/(p2+1)
+        b = (randint(1, px)*5)/(p2+1)
         c = randint(2, p2)
-        d = (randint(2, px)*5)/(p2+1)
+        d = (randint(1, px)*5)/(p2+1)
         # main
         solution = (a*c)
         lista.append(a)
@@ -63,10 +63,27 @@ while True:
     #================================
     ask = input('\nSOLVED and Memorized?\n[ANY BUTTON TO CONTINUE...]')
     os.system('cls' if os.name == 'nt' else 'clear') 
+    #================================
+    xa = randint(2, p1)
+    xb = (randint(1, px)*5)/(p2+1)
+    xc = randint(2, p2)
+    xd = (randint(1, px)*5)/(p2+1)
+    x = xa*xc
+    try:
+        askx = int(input(f"Test [X] | ({xa-xb: ^6.4g} + {xb: ^6.4g}){'x': ^6.4}({xc+xd: ^6.4g} - {xd:^6.4g}) = "))
+    except:
+        askx = 0
+    if askx == x:
+        print('[✅] Right!')
+    else:
+        print('[❎] Wrong! - Answer: {x}')
+    ask = input('\n\n[ANY BUTTON TO CONTINUE...]')
+    os.system('cls' if os.name == 'nt' else 'clear') 
+    #================================
     # this will garante that there have solve the problem without notating. To that, he need memorized the solution.
     lin()
     print('[TEST START!]')
-    round = 0
+    round = c = 0
     roundLimit = memory
     while round < roundLimit:
         if round != 0:
@@ -83,12 +100,18 @@ while True:
         if listAnswers == listSolutions: # change by scan: True or False
             right += (1/(round+1))*memory
             point += (1/(round+1))*memory
-            print(f'[✅] Right! (+{1/(round+1)} point)\n')
+            print(f'[✅] Right! (+{(1/(round+1))*memory} point)\n')
             break
         else:
-            wrong += ((round+1))*memory
-            point -= ((round+1))*memory
-            print(f'[❎] Wrong! (-{1*(round+1)} point)')
+            wrong += ((round+1)*memory)
+            point -= ((round+1)*memory)
+            # Rights numbers
+            c = 0
+            for i in range(memory):
+                if listAnswers[i] == listSolutions[i]:
+                    c += 1
+            # print result
+            print(f'[❎] Wrong! (-{(round+1)*memory} point) - Right Counter [{c}/{memory}]')
             round += 1
         if round < roundLimit:
             ask = input('Do you whant to repeat? (only if you remeber the answer!) [y/n] ')[0].lower()
