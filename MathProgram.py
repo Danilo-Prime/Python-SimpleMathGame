@@ -14,6 +14,8 @@ while True:
     px = (p+1)*2
     a = randint(2, p)
     b = (randint(2, px)*5)/(p+1)
+    if b == 1:
+        b += (randint(2, px)*5)/(p+1)
     solution = (a*b)
     answer = float(input(f"Level {level}, test: ({test}/{lim}) | Point: {point}\n{a} x {b} = "))
     if answer == solution:

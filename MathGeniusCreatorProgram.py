@@ -50,13 +50,15 @@ while True:
         b = (randint(1, px)*5)/(p2+1)
         c = randint(2, p2)
         d = (randint(1, px)*5)/(p2+1)
+        e = randint(2, p2)
+        f = randint(2, p2)
         # main
         solution = (a*c)
         lista.append(a)
         listc.append(c)
         listSolutions.append(solution)
         listAnswers.append(0)
-        print(f"({test}/{lim})\t| Test [{i}] = ({a-b: ^6.4g} + {b: ^6.4g}){'x': ^6.4}({c+d: ^6.4g} - {d:^6.4g})")
+        print(f"({test}/{lim})\t| Test [{i}] = ({a-b: ^6.4g} + {b*e: ^6.4g}/{e:^6.4g}){'x': ^6.4}({c+d: ^6.4g} - {d*f:^6.4g}/{f:^6.4g})")
         # final
         test += 1
     # Question:
