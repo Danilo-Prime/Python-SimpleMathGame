@@ -20,8 +20,8 @@ while True:
         b += (randint(2, px))/(p+1)
     lin(80)
     solution = (((a*1000)*(b*1000))/10**6) # treat the solution | Memory erro that make a bug of ...9999999... The solution have been put all in interger.
-    answer = float(input(f"Level {level}, test: ({test}/{lim}) \t| Point: {point} \t| Right: {right/100}% \tWrong: {wrong} |\n{'-'*80}\n{a} x {b} = "))
-    lin(80)
+    answer = float(input(f"Level {level}, test: ({test}/{lim}) \t| Point: {point} \t| Right: {right} \tWrong: {wrong} |\n{'-'*80}\n{a} x {b} = "))
+    print('-'*80)
     if answer == solution:
         right += 1
         point += 1
@@ -31,6 +31,7 @@ while True:
         point -= 1
         print('[❎] Wrong!')
     print(f'Answer {a} x {b}: {solution}')
+    lin(80)
     test += 1
     if test > lim:
         if point > lim*0.66:
