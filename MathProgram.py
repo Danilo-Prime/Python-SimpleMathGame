@@ -10,7 +10,7 @@ lin()
 print('\n')
 test = right = wrong = point = 0
 level = int(input('Enter Level (0 as default): '))
-lim = 100
+lim = 1000
 while True:
     p = (10**(level+1))-1
     px = (10**(level+2))-1
@@ -18,21 +18,7 @@ while True:
     b = (randint(2, px))/(p+1)
     if b == 1:
         b += (randint(2, px))/(p+1)
-    solution = (a*b)
-    # treat the solution
-    n = str(solution).split('.')
-    nPointer = n[1][5:6]
-    if nPointer != 0:
-        try:
-            if  int(nPointer) >= 5:
-                solution = float(n[0]+'.'+n[1][:4])+0.0001
-            else:
-                solution = float(n[0]+'.'+n[1][:4])
-        except:
-            solution = float(n[0]+'.'+n[1][:4])
-
-    else:
-        solution = float(n[0]+'.'+n[1][:4])
+    solution = (((a*1000)*(b*1000))/10**6) # treat the solution | Memory erro that make a bug of ...9999999... The solution have been put all in interger.
     answer = float(input(f"Level {level}, test: ({test}/{lim}) | Point: {point}\n{a} x {b} = "))
     if answer == solution:
         right += 1
@@ -42,7 +28,7 @@ while True:
         wrong += 1
         point -= 1
         print('[❎] Wrong!')
-    print(f'Answer: {solution}')
+    print(f'Answer {a} x {b}: {solution}')
     test += 1
     if test > lim:
         if point > lim*0.66:
