@@ -2,8 +2,10 @@ from random import randint
 def lin(x=30):
     print('='*x)
 lin()
-print('# ALERT: YOU CANNOT HAVE -10 NEGATIVE POINT. That means 10 errors without right answer.')
-print('# The Level is the 10^Level. The size of the level is the power of 10.')
+print("""# ALERT: YOU CANNOT HAVE -10 NEGATIVE POINT. That means 10 errors without right answer.
+# The Level is the 10^Level. The size of the level is the power of 10.
+# Limit of 4 digit of decimals.
+""")
 lin()
 print('\n')
 test = right = wrong = point = 0
@@ -11,12 +13,26 @@ level = int(input('Enter Level (0 as default): '))
 lim = 100
 while True:
     p = (10**(level+1))-1
-    px = (p+1)*2
-    a = randint(2, p)
-    b = (randint(2, px)*5)/(p+1)
+    px = (10**(level+2))-1
+    a = randint(2, p)/100
+    b = (randint(2, px))/(p+1)
     if b == 1:
-        b += (randint(2, px)*5)/(p+1)
+        b += (randint(2, px))/(p+1)
     solution = (a*b)
+    # treat the solution
+    n = str(solution).split('.')
+    nPointer = n[1][5:6]
+    if nPointer != 0:
+        try:
+            if  int(nPointer) >= 5:
+                solution = float(n[0]+'.'+n[1][:4])+0.0001
+            else:
+                solution = float(n[0]+'.'+n[1][:4])
+        except:
+            solution = float(n[0]+'.'+n[1][:4])
+
+    else:
+        solution = float(n[0]+'.'+n[1][:4])
     answer = float(input(f"Level {level}, test: ({test}/{lim}) | Point: {point}\n{a} x {b} = "))
     if answer == solution:
         right += 1
