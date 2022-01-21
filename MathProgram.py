@@ -35,8 +35,8 @@ while True:
         n4 = (randint(2, 9999))
         nA = (n1-n2)
         nB = (n3-n4)
-        nX = (nA+nB)/100
-        answer2 = float(input(f"[Sum Test {i+1}/3 for Pass Through]\n({nA/100} + {nB/100}) = "))
+        nX = ((nA+nB)*10**i)/1000
+        answer2 = float(input(f"[Sum Test {i+1}/3 for Pass Through]\n({(nA*10**i)/1000} + {(nB*10**i)/1000}) = "))
         if answer2 == nX:
             print('[✅] Right!')
             pPoint += 1
@@ -51,12 +51,13 @@ while True:
     answer = float(input('[Final Solution] = '))
     if answer == solution:
         right += 1
-        point += (1/4)*pPoint
-        print('[✅] Right! - [+Point]')
+        pPoint += 3
+        point += (1/6)*pPoint
+        print(f'[✅] Right! - [+{(1/6)*pPoint}]')
     else:
         wrong += 1
         point -= (1/(pPoint+1))
-        print('[❎] Wrong! - [-Point]')
+        print(f'[❎] Wrong! - [-{(1/(pPoint+1))}]')
     #================================
     #================================
     print(f'\nAnswer:\n({a} x {b}) = {solution}')
