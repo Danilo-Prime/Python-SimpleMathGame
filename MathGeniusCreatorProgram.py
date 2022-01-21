@@ -78,7 +78,7 @@ while True:
     if askx == x:
         print('[✅] Right!')
     else:
-        print('[❎] Wrong! - Answer: {x}')
+        print(f'[❎] Wrong! - Answer: {x}')
     ask = input('\n\n[ANY BUTTON TO CONTINUE...]')
     os.system('cls' if os.name == 'nt' else 'clear') 
     #================================
